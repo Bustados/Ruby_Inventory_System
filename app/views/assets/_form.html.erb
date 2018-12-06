@@ -1,0 +1,42 @@
+<%= form_with(model: asset, local: true) do |form| %>
+  <% if asset.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(asset.errors.count, "error") %> prohibited this asset from being saved:</h2>
+
+      <ul>
+      <% asset.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Type %>
+    <%= form.text_field :Type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Make %>
+    <%= form.text_field :Make %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Model %>
+    <%= form.text_field :Model %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Serial %>
+    <%= form.text_field :Serial %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Assigned %>
+    <%= form.text_field :Assigned %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

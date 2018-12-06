@@ -1,0 +1,66 @@
+<div class="container">
+
+  <div class="row">
+    <div class="text-center">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newasset">
+        New Asset
+      </button>
+    </div>
+  </div>
+
+  <br>
+  <hr>
+
+  <div class="row" id="container_assets">
+    <%= render @assets %>
+  </div>
+
+
+  <!-- Modal  create action -->
+  <%= form_for(@asset, remote: true) do |f| %>
+    <div class="modal fade" id="newasset" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-model" id="myModalLabel">Asset</h4>
+          </div>
+
+          <div class="modal-body">
+            <div class="field">
+              <%= f.label :Type, 'Type:' %><br>
+              <%= f.text_area :Type, class: "form-control asset_type " %>
+            </div>
+            <div class="field">
+              <%= f.label :Make, 'Make:' %><br>
+              <%= f.text_area :Make, class: "form-control asset_make" %>
+            </div>
+            <div class="field">
+              <%= f.label :Model, 'Model:' %><br>
+              <%= f.text_area :Model, class: "form-control asset_model" %>
+            </div>
+            <div class="field">
+              <%= f.label :Serial, 'Serial Number:' %><br>
+              <%= f.text_area :Serial, class: "form-control asset_serial" %>
+            </div>
+            <div class="field">
+              <input type="text" id="search-box" placeholder="Assigned to" />
+              <div id="suggestion-box"></div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="newassetclose">Close</button>
+            <%= submit_tag "Create", class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <!-- Modal -->
+
+
+
+</div>

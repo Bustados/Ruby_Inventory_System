@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Type: MyString
+  Make: MyString
+  Model: MyString
+  Serial: MyString
+  Assigned: MyString
+
+two:
+  Type: MyString
+  Make: MyString
+  Model: MyString
+  Serial: MyString
+  Assigned: MyString

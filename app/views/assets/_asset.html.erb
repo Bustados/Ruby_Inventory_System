@@ -1,0 +1,73 @@
+<div class="col-md-4 blog-main box text-center" id="asset_<%= asset.id %>">
+
+  <div class="card bg-info text-white">
+
+    <div class="card-heading">
+      <h3 class="card-title"><%= asset.Model %></h3>
+      <p>Type:<%= asset.Type %></p>
+      <p>Make:<%= asset.Make %></p>
+      <p>Serial Number:<%= asset.Serial %></p>
+      <p>Assigned to:<%= asset.Assigned %></p>
+
+    </div>
+
+      <div class="card-body"><!-- Panel Body-->
+
+      <div style="color: #0bd600;"><%= time_tag(asset.created_at) %></div>
+      <br>
+
+      <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updateasset_<%= asset.id %>">
+          Edit
+        </button>
+        <%= link_to 'Delete', asset, method: :delete, class: "btn btn-danger", remote: true %>
+      </div>
+    </div><!-- Panel Body -->
+
+  </div><!-- Panel Info -->
+
+
+  <!-- Modal - update assets -->
+  <%= form_for(asset, :method => :put, remote: true) do |f| %>
+    <div class="modal fade" id="updateasset_<%= asset.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-model" id="myModalLabel">Edit</h4>
+          </div>
+          <div class="modal-body">
+            <div class="field">
+              <%= f.label :Type, 'Type:' %><br>
+              <%= f.text_area :Type, class: "form-control asset_type " %>
+            </div>
+            <div class="field">
+              <%= f.label :Make, 'Make:'  %><br>
+              <%= f.text_area :Make, class: "form-control asset_make" %>
+            </div>
+            <div class="field">
+              <%= f.label :Model, "Model:" %><br>
+              <%= f.text_area :Model, class: "form-control asset_model" %>
+            </div>
+            <div class="field">
+              <%= f.label :Serial, 'Serial Number:' %><br>
+              <%= f.text_area :Serial, class: "form-control asset_serial" %>
+            </div>
+            <div class="field">
+              <%= f.label :Assigned, 'Person the asset is assigned to:' %><br>
+              <%= f.text_area :Assigned, class: "form-control asset_assigned" %>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="updatebutton_<%= asset.id %>" class="btn btn-default" data-dismiss="modal">Close</button>
+            <%= submit_tag "Update", class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <!-- Modal -->
+
+
+</div>

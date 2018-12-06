@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @asset.Type %>
+</p>
+
+<p>
+  <strong>Make:</strong>
+  <%= @asset.Make %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @asset.Model %>
+</p>
+
+<p>
+  <strong>Serial:</strong>
+  <%= @asset.Serial %>
+</p>
+
+<p>
+  <strong>Assigned:</strong>
+  <%= @asset.Assigned %>
+</p>
+
+<%= link_to 'Edit', edit_asset_path(@asset) %> |
+<%= link_to 'Back', assets_path %>

@@ -1,0 +1,7 @@
+//$("#updateasset_<%= @asset.id %>").remove();
+$("#updateasset_<%= @asset.id %>").modal('hide');
+$("#asset_<%= @asset.id %>").fadeOut(1000, function(){
+
+    $(this).remove();
+    $("#container_assets").prepend('<%= j render @asset %>')
+});

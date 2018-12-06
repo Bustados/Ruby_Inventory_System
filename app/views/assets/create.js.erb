@@ -1,0 +1,9 @@
+$("#newasset").modal('hide');
+$(".asset_type").val('');
+$(".asset_make").val('');
+$(".asset_model").val('');
+$(".asset_serial").val('');
+$(".asset_assigned").val('');
+
+$("#container_assets").prepend('<%= j render @asset %>');
+$("#asset_<%= @asset.id %>").hide().fadeIn(1000);
